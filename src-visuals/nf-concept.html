@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{
+            width: 100vw;
+            height: 100vh;
+            max-width: 100%;
+            max-height: 100vh;
+            background:#121013;
+            color:#f4eae6;
+            font-family:"Hanken Grotesk","Inter","Segoe UI",Arial,sans-serif;
+            overflow:hidden;
+            position:relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .glow{
+            position:absolute;
+            inset:0;
+            background:radial-gradient(800px 450px at 78% 8%,#5a1a2b 0%,transparent 70%);
+            pointer-events:none;
+        }
+        .bar{
+            position:relative;
+            display:flex;
+            align-items:center;
+            gap:28px;
+            padding:18px 48px;
+            font-size:16px;
+            color:#b9a49e;
+            flex-shrink: 0;
+        }
+        /* Logo N emblématique de Netflix */
+        .bar .netflix-n {
+            font-family: 'Arial Black', sans-serif;
+            font-size: 32px;
+            font-weight: 900;
+            color: #E50914;
+            margin-right: 12px;
+            letter-spacing: -1px;
+            line-height: 1;
+            text-shadow: 0 2px 8px rgba(229, 9, 20, 0.4);
+            display: inline-block;
+            transform: scaleY(1.05);
+        }
+        .bar .on{color:#fff;font-weight:700;border-bottom:3px solid #e8899a;padding-bottom:4px}
+        .bar .tag{margin-left:auto;font-size:13px;border:1.5px solid #6b4a50;padding:4px 12px;border-radius:999px;color:#e8c3ca}
+
+        main{
+            position:relative;
+            display:grid;
+            grid-template-columns:1.55fr 1fr;
+            gap:36px;
+            padding:10px 48px 0;
+            flex: 1;
+        }
+
+        h1{font-size:42px;line-height:1.05;letter-spacing:-.03em;font-weight:800;max-width:12em}
+        .sub{margin-top:10px;font-size:18px;color:#c9b6b0;max-width:28em;line-height:1.35}
+
+        .lab{margin-top:22px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#a58f89;font-weight:600}
+
+        .row{display:flex;gap:10px;margin-top:8px}
+        .chip{font-size:17px;padding:8px 18px;border-radius:999px;border:1.5px solid #4a3a3c;color:#e6d6d1;cursor:pointer}
+        .chip.sel{background:#f4eae6;color:#2a0d14;border-color:#f4eae6;font-weight:700}
+
+        .lvl{display:flex;margin-top:8px;border:1.5px solid #4a3a3c;border-radius:12px;overflow:hidden;width:max-content}
+        .lvl div{padding:8px 18px;font-size:17px;border-right:1.5px solid #4a3a3c;color:#d8c6c1;cursor:pointer}
+        .lvl div:last-child{border:0}
+        .lvl .sel{background:#e8899a;color:#2a0d14;font-weight:800}
+        .lvl-cap{margin-top:6px;font-size:14px;color:#a58f89}
+
+        .picks{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:10px}
+        .tile{border-radius:10px;height:125px;padding:12px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+        .tile b{font-size:17px;font-weight:700;line-height:1.1}
+        .tile span{font-size:13px;opacity:.9;margin-top:3px}
+        .t1{background:linear-gradient(160deg,#3b5d73,#16222c)}
+        .t2{background:linear-gradient(160deg,#9a5a3c,#3a1e14)}
+        .t3{background:linear-gradient(160deg,#4f6b4e,#1b2a1c)}
+        .t4{background:linear-gradient(160deg,#6a4a7a,#231729)}
+        .badge{position:absolute;top:10px;left:10px;font-size:12px;font-weight:700;background:rgba(18,16,19,.7);padding:2px 7px;border-radius:4px}
+
+        aside{align-self:start;margin-top:4px;background:#1d171a;border:1.5px solid #3a2c2f;border-radius:16px;padding:24px}
+        aside .k{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#a58f89;font-weight:600}
+        aside .big{font-size:48px;font-weight:800;letter-spacing:-.03em;margin-top:4px}
+        aside .big small{font-size:20px;font-weight:600;color:#c9b6b0;letter-spacing:0}
+
+        .track{height:10px;border-radius:99px;background:#3a2c2f;margin-top:14px;overflow:hidden}
+        .track i{display:block;height:100%;width:62%;background:#e8899a;border-radius:99px}
+        .meta{display:flex;justify-content:space-between;margin-top:8px;font-size:15px;color:#c9b6b0}
+
+        hr{border:0;border-top:1.5px solid #3a2c2f;margin:20px 0 16px}
+
+        .tool{display:flex;align-items:center;gap:12px;font-size:17px;padding:8px 0}
+        .tool i{width:9px;height:9px;border-radius:50%;background:#e8899a}
+        .tool span{margin-left:auto;font-size:14px;color:#a58f89}
+
+        .foot{padding: 16px 48px 20px;font-size:13px;color:#8e7a75;flex-shrink:0}
+    </style>
+</head>
+<body>
+<div class="glow"></div>
+<div class="bar">
+    <span class="netflix-n">N</span>
+    <span>Home</span>
+    <span>Series</span>
+    <span>Films</span>
+    <span>My list</span>
+    <span class="on">Learn a language</span>
+    <span class="tag">Concept</span>
+</div>
+<main>
+    <section>
+        <h1>Learn a language with what you watch.</h1>
+        <p class="sub">Pick a language and a level. Get titles that match it.</p>
+
+        <div class="lab">1 · Language</div>
+        <div class="row">
+            <div class="chip sel">French</div>
+            <div class="chip">German</div>
+            <div class="chip">Spanish</div>
+            <div class="chip">Korean</div>
+        </div>
+
+        <div class="lab">2 · Level</div>
+        <div class="lvl">
+            <div>A1</div><div>A2</div><div class="sel">B1</div><div>B2</div><div>C1</div><div>C2</div>
+        </div>
+        <div class="lvl-cap">Beginner → Advanced</div>
+
+        <div class="lab">3 · Picked for your level</div>
+        <div class="picks">
+            <div class="tile t1"><span class="badge">B1</span><b>Night Train</b><span>Drama · FR subtitles</span></div>
+            <div class="tile t2"><span class="badge">B1</span><b>The Bakery</b><span>Comedy · slow speech</span></div>
+            <div class="tile t3"><span class="badge">B1</span><b>Coastal Lines</b><span>Series · clear audio</span></div>
+            <div class="tile t4"><span class="badge">B1</span><b>Small Hours</b><span>Thriller · FR subtitles</span></div>
+        </div>
+    </section>
+
+    <aside>
+        <div class="k">Your progress</div>
+        <div class="big">B1 <small>French</small></div>
+        <div class="track"><i></i></div>
+        <div class="meta"><span>62% of B1</span><span>Next: B2</span></div>
+        <hr>
+        <div class="k">Tools</div>
+        <div class="tool"><i></i>Vocabulary<span>saved words</span></div>
+        <div class="tool"><i></i>Pronunciation<span>repeat a phrase</span></div>
+    </aside>
+</main>
+<div class="foot">Concept visual for a student project. Not an official Netflix interface. Titles are invented.</div>
+</body>
+</html>

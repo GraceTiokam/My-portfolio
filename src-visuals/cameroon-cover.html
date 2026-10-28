@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Maquette Site Naturel - Gorges de Kola</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;700&family=Mansalva&display=swap" rel="stylesheet">
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+
+        html, body {
+          width: 100%;
+          height: 100%;
+          background: #111; /* Bandes sombres/noires autour pour le centrage */
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        /* Conteneur principal mis à l'échelle pour rentrer pile dans l'écran 14" */
+        .stage-wrapper {
+          width: 1600px;
+          height: 1750px;
+          background: #fdf4e3;
+          position: relative;
+          overflow: hidden;
+          font-family: 'Inter', sans-serif;
+          color: #4a2c14;
+          box-shadow: 0 0 50px rgba(0,0,0,0.8);
+          transform-origin: center center;
+        }
+
+        /* Arrière-plan décoratif */
+        .sun{position:absolute;right:-120px;top:-160px;width:620px;height:620px;border-radius:50%;background:#e6be79;opacity:.55}
+        .sage{position:absolute;left:-180px;bottom:-260px;width:700px;height:700px;border-radius:50%;background:#d5dec1;opacity:.8}
+
+        /* SECTION TÉLÉPHONES */
+        .phones-container{
+          display:flex;
+          justify-content:center;
+          gap:80px;
+          padding-top:50px;
+          position:relative;
+          z-index:2;
+        }
+
+        .phone{
+          width:420px;
+          height:840px;
+          border-radius:56px;
+          background:#2b1a0e;
+          padding:16px;
+          box-shadow:0 30px 70px rgba(74,44,20,.35);
+          position:relative;
+        }
+
+        .scr{
+          width:100%;
+          height:100%;
+          border-radius:42px;
+          overflow:hidden;
+          background:#fdf4e3;
+          position:relative;
+          display:flex;
+          flex-direction:column;
+          padding:24px 20px;
+        }
+
+        /* Typographies spécifiées */
+        .font-region {
+          font-family: 'Inter', sans-serif;
+          font-weight: 100;
+          font-size: 16px;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #7a4a1e;
+        }
+
+        .font-site-naturel {
+          font-family: 'Mansalva', cursive;
+          font-size: 40px;
+          line-height: 1.1;
+          color: #4a2c14;
+          margin-top: 4px;
+        }
+
+        .font-titre1 {
+          font-family: 'Mansalva', cursive;
+          font-size: 26px;
+          color: #4a2c14;
+          margin-top: 2px;
+        }
+
+        .font-titre2 {
+          font-family: 'Inter', sans-serif;
+          font-weight: 700;
+          font-size: 20px;
+          color: #3b200b;
+          margin-bottom: 8px;
+        }
+
+        .font-body {
+          font-family: 'Inter', sans-serif;
+          font-weight: 400;
+          font-size: 15px;
+          line-height: 1.45;
+          color: #4a2c14;
+        }
+
+        /* Contenu Téléphone Gauche */
+        .mobile-template-bg {
+          position: absolute;
+          top: 0; left: 0; width: 100%; height: 100%;
+          object-fit: cover;
+          opacity: 0.25;
+          z-index: 0;
+        }
+        .scr-content {
+          position: relative;
+          z-index: 1;
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+
+        .card-box {
+          background: rgba(255, 255, 255, 0.65);
+          backdrop-filter: blur(4px);
+          border-radius: 20px;
+          padding: 18px;
+          margin-top: 20px;
+          border: 1px solid rgba(255,255,255,0.8);
+        }
+
+        .bottom-nav-mobile {
+          margin-top: auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-top: 15px;
+        }
+
+        .circle-btn {
+          width: 54px;
+          height: 54px;
+          border-radius: 50%;
+          background: #e4be77;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .circle-btn.dark {
+          background: #5c350c;
+          color: #fff;
+        }
+
+        /* Contenu Téléphone Droite */
+        .map-placeholder {
+          width: 100%;
+          height: 180px;
+          background: #e8ded1;
+          border-radius: 16px;
+          margin-top: 12px;
+          overflow: hidden;
+          position: relative;
+          border: 1px solid #d4c5b3;
+        }
+
+        /* SECTION ORDINATEUR (DESKTOP TEMPLATE) */
+        .desktop-container {
+          width: 1280px;
+          margin: 50px auto 40px;
+          position: relative;
+          z-index: 2;
+        }
+
+        .computer-frame {
+          background: #2b1a0e;
+          border-radius: 24px;
+          padding: 16px 16px 24px 16px;
+          box-shadow: 0 35px 80px rgba(74,44,20,.4);
+        }
+
+        .screen-desktop {
+          background: #fdf4e3;
+          border-radius: 14px;
+          padding: 36px 46px;
+          min-height: 580px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        .desktop-body {
+          display: flex;
+          gap: 50px;
+          margin-top: 15px;
+        }
+
+        .desktop-left {
+          flex: 1;
+        }
+
+        .desktop-right {
+          flex: 1.2;
+          display: flex;
+          flex-direction: column;
+          gap: 18px;
+        }
+
+        .map-box-desktop {
+          width: 100%;
+          height: 300px;
+          background: #eadaa9;
+          border-radius: 12px;
+          position: relative;
+          overflow: hidden;
+          border: 1px solid #d8ca99;
+        }
+
+        .info-card-desktop {
+          background: #f6e3d4;
+          border-radius: 16px;
+          padding: 20px;
+        }
+
+        .desktop-nav-tabs {
+          display: flex;
+          gap: 16px;
+          align-items: center;
+          margin-top: 25px;
+        }
+
+        .tab-btn {
+          font-family: 'Mansalva', cursive;
+          font-size: 22px;
+          padding: 10px 28px;
+          border-radius: 999px;
+          background: #e6be79;
+          color: #4a2c14;
+          border: none;
+          cursor: pointer;
+        }
+
+        .tab-btn.active {
+          background: #cb8000;
+          color: #ffffff;
+        }
+
+        .cameroon-map-svg {
+          width: 100%;
+          height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="stage-wrapper" id="stage">
+    <div class="sun"></div>
+    <div class="sage"></div>
+
+    <!-- SECTION TÉLÉPHONES -->
+    <div class="phones-container">
+
+        <!-- TÉLÉPHONE GAUCHE : TEMPLATE DES POLICES -->
+        <div class="phone">
+            <div class="scr">
+                <svg class="mobile-template-bg" viewBox="0 0 300 600" preserveAspectRatio="xMidYMid slice">
+                    <rect width="300" height="600" fill="#f5ebda"/>
+                    <circle cx="150" cy="400" r="180" fill="#e2d3b7" opacity="0.5"/>
+                    <path d="M0 450 Q150 420 300 450 V600 H0 Z" fill="#d2c1a0" opacity="0.6"/>
+                </svg>
+
+                <div class="scr-content">
+                    <div class="font-region">REGION (INTER THIN 16)</div>
+                    <div class="font-site-naturel">SITE NATUREL</div>
+                    <div style="font-family:'Mansalva'; font-size:18px; color:#666;">(MANSALVA 40)</div>
+                    <div class="font-titre1">Titre 1 (Mansalva 26)</div>
+
+                    <div class="card-box">
+                        <div class="font-titre2">Titre2(Inter Bold 20)</div>
+                        <div class="font-body">
+                            Texte texte texte texte texte texte texte texte texte texte texte texte texte texte texte texte texte texte texte texte texte texte texte. <br>(Inter 16 - 14)
+                        </div>
+                    </div>
+
+                    <div class="bottom-nav-mobile">
+                        <div class="circle-btn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="#5c350c"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+                        </div>
+                        <div class="circle-btn dark">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TÉLÉPHONE DROITE : GORGES DE KOLA -->
+        <div class="phone">
+            <div class="scr">
+                <div class="scr-content">
+                    <div class="font-region">NORD</div>
+                    <div class="font-site-naturel">GORGES DE KOLA</div>
+                    <div class="font-titre1">Localisation</div>
+
+                    <div class="map-placeholder">
+                        <svg class="cameroon-map-svg" viewBox="0 0 200 150">
+                            <rect width="200" height="150" fill="#e9e0d1"/>
+                            <path d="M20 100 L40 40 L90 20 L130 50 L110 120 Z" fill="#d8c8b0" stroke="#b8a890"/>
+                            <circle cx="95" cy="35" r="5" fill="#d00000"/>
+                            <text x="105" y="38" font-size="10" font-family="Inter" font-weight="bold" fill="#d00000">Gorges de Kola</text>
+                            <text x="105" y="50" font-size="8" font-family="Inter" fill="#555">Guider</text>
+                        </svg>
+                    </div>
+
+                    <div class="card-box" style="margin-top:12px; padding:14px;">
+                        <div class="font-body" style="font-size:13px;">
+                            Situées dans la région du <b>Nord</b>, à proximité de la ville de <b>Guider</b>, les Gorges de Kola s'étendent sur plusieurs kilomètres.
+                        </div>
+                    </div>
+
+                    <div class="bottom-nav-mobile">
+                        <div class="circle-btn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="#5c350c"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+                        </div>
+                        <div class="circle-btn dark">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SECTION ORDINATEUR -->
+    <div class="desktop-container">
+        <div class="computer-frame">
+            <div class="screen-desktop">
+
+                <div>
+                    <div class="font-region" style="font-size: 22px;">NORD</div>
+                    <div class="font-site-naturel" style="font-size: 58px;">GORGES DE KOLA</div>
+                </div>
+
+                <div class="desktop-body">
+                    <div class="desktop-left">
+                        <div class="map-box-desktop">
+                            <svg viewBox="0 0 500 320" style="width:100%; height:100%;">
+                                <rect width="500" height="320" fill="#eeddb8"/>
+                                <path d="M50 280 L100 180 L140 80 L220 30 L260 90 L220 180 L250 280 Z" fill="#dfcb9d" stroke="#c0ad80" stroke-width="2"/>
+                                <circle cx="170" cy="75" r="7" fill="#d00000"/>
+                                <text x="182" y="80" font-family="Inter" font-weight="bold" font-size="14" fill="#d00000">GORGES DE KOLA</text>
+
+                                <rect x="290" y="20" width="190" height="280" rx="8" fill="#f7ebd3" stroke="#d0c0a0"/>
+                                <circle cx="380" cy="120" r="6" fill="#d00000"/>
+                                <text x="380" y="105" font-family="Inter" font-size="12" font-weight="bold" text-anchor="middle" fill="#333">GUIDER</text>
+                                <text x="380" y="140" font-family="Inter" font-size="11" font-weight="bold" text-anchor="middle" fill="#d00000">GORGES DE KOLA</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="desktop-right">
+                        <div class="font-site-naturel" style="font-size:42px; margin:0;">Localisation</div>
+
+                        <p class="font-body" style="font-size:18px;">
+                            Situées dans la région du <b>Nord</b>, à proximité de la ville de <b>Guider</b>, les Gorges de Kola s'étendent sur plusieurs kilomètres. Ce canyon naturel, façonné par l'érosion, offre un spectacle grandiose avec ses parois abruptes et sa végétation luxuriante.
+                        </p>
+
+                        <div class="info-card-desktop">
+                            <p class="font-body" style="font-size:16px; margin-bottom:12px;">
+                                Voici quelques informations supplémentaires qui pourraient vous être utiles :
+                            </p>
+                            <p class="font-body" style="font-size:16px;">
+                                <b>Coordonnées GPS :</b> <span style="text-decoration:underline;">9° 51' 04" N, 13° 57' 38" E</span><br>
+                                <b>Accès :</b> Il est recommandé de se rendre aux gorges avec un guide local qui connaît bien les lieux.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="desktop-nav-tabs">
+                    <button class="tab-btn">Présentation</button>
+                    <button class="tab-btn active">Localisation</button>
+                    <button class="tab-btn">Caractéristique</button>
+                    <button class="tab-btn">Visiter</button>
+
+                    <div class="circle-btn dark" style="margin-left:auto; width:60px; height:60px;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Script d'auto-ajustement d'échelle pour s'adapter parfaitement à la taille exacte de l'écran 14"
+    function fitToScreen() {
+        const stage = document.getElementById('stage');
+        const scaleX = window.innerWidth / 1600;
+        const scaleY = window.innerHeight / 1750;
+        const scale = Math.min(scaleX, scaleY);
+        stage.style.transform = `scale(${scale})`;
+    }
+
+    window.addEventListener('resize', fitToScreen);
+    window.addEventListener('DOMContentLoaded', fitToScreen);
+</script>
+
+</body>
+</html>

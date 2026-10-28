@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#7a1f32">
+    <title>Grace Tiokam | UX/UI Portfolio</title>
+    <meta name="description" content="Grace Tiokam, web engineering student with a UX focus. Case studies in user research, interface design and prototyping. Looking for a UX/UI internship from April 2027.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Grace Tiokam | UX/UI Portfolio">
+    <meta property="og:description" content="Understand first, then design, then build. Case studies in user research, interface design and prototyping.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%237a1f32%27/%3E%3Ctext x=%2716%27 y=%2723%27 font-size=%2720%27 font-family=%27Arial%27 font-weight=%27700%27 text-anchor=%27middle%27 fill=%27%23fff%27%3EG%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=Mansalva&display=swap">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Cameroon page: screen template (from cameroon-cover.html), scoped to .desktop-container */
+        .desktop-container { width: 100%; max-width: 1280px; margin: 8px auto 40px; font-family: "Inter", "Hanken Grotesk", sans-serif; color: #4a2c14; }
+        .desktop-container .computer-frame { background: #2b1a0e; border-radius: clamp(12px, 2vw, 24px); padding: clamp(6px, 1.2vw, 16px) clamp(6px, 1.2vw, 16px) clamp(10px, 1.8vw, 24px); box-shadow: 0 20px 50px rgba(74,44,20,.3); }
+        .desktop-container .screen-desktop { background: #fdf4e3; border-radius: clamp(8px, 1.2vw, 14px); padding: clamp(16px, 3.4vw, 40px) clamp(14px, 3.9vw, 50px); display: flex; flex-direction: column; gap: clamp(14px, 2vw, 24px); }
+        .desktop-container .font-region { font-family: "Inter", sans-serif; font-weight: 300; font-size: clamp(.8rem, 1.7vw, 1.4rem); letter-spacing: .1em; text-transform: uppercase; color: #7a4a1e; }
+        .desktop-container .font-site-naturel { font-family: "Mansalva", cursive; line-height: 1.1; color: #4a2c14; margin-top: 4px; }
+        .desktop-container .font-site-naturel.big { font-size: clamp(1.7rem, 4.5vw, 3.6rem); }
+        .desktop-container .font-site-naturel.sub { font-size: clamp(1.4rem, 3.3vw, 2.6rem); margin: 0; }
+        .desktop-container .font-body { font-family: "Inter", sans-serif; font-weight: 400; font-size: clamp(.78rem, 1.1vw, 1rem); line-height: 1.45; color: #4a2c14; margin: 0; }
+        .desktop-container .font-body.lead { font-size: clamp(.8rem, 1.2vw, 1.125rem); line-height: 1.4; }
+        .desktop-container .font-body.mb { margin-bottom: 12px; }
+        .desktop-container .u { text-decoration: underline; }
+        .desktop-container .desktop-body { display: flex; gap: clamp(16px, 3.9vw, 50px); }
+        .desktop-container .desktop-left { flex: 1; min-width: 0; }
+        .desktop-container .desktop-right { flex: 1.2; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+        .desktop-container .map-box-desktop { width: 100%; aspect-ratio: 500 / 320; background: #eadaa9; border-radius: 12px; overflow: hidden; border: 1px solid #d8ca99; }
+        .desktop-container .info-card-desktop { background: #f6e3d4; border-radius: 16px; padding: clamp(12px, 1.7vw, 22px); }
+        .desktop-container .desktop-nav-tabs { display: flex; flex-wrap: wrap; gap: clamp(8px, 1.2vw, 16px); align-items: center; }
+        .desktop-container .tab-btn { font-family: "Mansalva", cursive; font-size: clamp(.9rem, 1.7vw, 1.375rem); padding: clamp(8px, 1vw, 12px) clamp(14px, 2.5vw, 32px); border-radius: 999px; background: #e6be79; color: #4a2c14; border: none; cursor: default; }
+        .desktop-container .tab-btn.active { background: #cb8000; color: #fff; }
+        .desktop-container .circle-btn { width: clamp(40px, 4.7vw, 60px); height: clamp(40px, 4.7vw, 60px); margin-left: auto; border-radius: 50%; background: #5c350c; color: #fff; display: flex; align-items: center; justify-content: center; }
+        @media (max-width: 640px) { .desktop-container .desktop-body { flex-direction: column; } .desktop-container .circle-btn { display: none; } }
+    </style>
+    <script>
+        /* set theme before paint to avoid a flash */
+        try { var s = localStorage.getItem('theme'); if (s) document.documentElement.setAttribute('data-theme', s); } catch (e) {}
+    </script>
+</head>
+<body>
+<a class="sr" href="#projects" data-i18n="skip">Skip to projects</a>
+
+<header class="top">
+    <div class="wrap">
+        <a class="brand" href="#home">Grace Tiokam</a>
+        <div class="controls">
+            <div class="lang" role="group" aria-label="Language" data-i18n-aria="lang.label">
+                <button type="button" data-lang="en" aria-pressed="true" lang="en" aria-label="English">EN</button>
+                <button type="button" data-lang="de" aria-pressed="false" lang="de" aria-label="Deutsch">DE</button>
+            </div>
+            <button class="theme" id="theme" type="button" aria-label="Switch to dark mode">
+                <svg class="ico-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+                <svg class="ico-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+                <span class="theme-label" id="theme-label">Dark</span>
+            </button>
+        </div>
+        <nav class="nav" aria-label="Main" data-i18n-aria="nav.label">
+            <a href="#home" data-i18n="nav.home">Home</a>
+            <a href="#projects" data-i18n="nav.projects">Projects</a>
+            <a href="#about" data-i18n="nav.about">About</a>
+            <a href="#contact" data-i18n="nav.contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main id="main">
+    <!-- ================= HOME ================= -->
+    <div class="view" id="view-home">
+        <section class="hero" id="home">
+            <div class="wrap hero-grid">
+                <svg class="route" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M0 30 C 200 -20, 420 20, 500 140 S 640 330, 590 520 S 560 760, 592 880"/>
+                </svg>
+                <div>
+                    <h1 data-i18n="hero.h1">Understand first, then design, then build.</h1>
+                    <p class="lede" data-i18n="hero.lede"><strong>I'm Grace Tiokam.</strong> I start with the people who will use a product: who they are, what slows them down, what they are trying to do. Then I sketch, prototype and test before I build. I study web engineering in a Franco-German programme and work in French, English and German.</p>
+                    <p class="status"><i aria-hidden="true"></i><span data-i18n="hero.status">Looking for a UX/UI internship from April 2027, near Saarbrücken</span></p>
+                    <div class="cta-row">
+                        <a class="btn" href="#projects" data-i18n="hero.cta">Explore my projects</a>
+                        <a class="btn ghost" href="#contact" data-i18n="hero.cta2">Get in touch</a>
+                    </div>
+                </div>
+                <figure class="portrait">
+                    <img src="assets/img/grace.jpg" width="900" height="1156" alt="Portrait of Grace Tiokam in a black blazer against a grey background" data-i18n-alt="hero.alt" fetchpriority="high">
+                    <figcaption><span lang="de">Ich bin Grace!</span></figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="sec" id="projects">
+            <div class="wrap">
+                <div class="sec-head">
+                    <h2 data-i18n="pr.h2">Selected Projects</h2>
+                    <p data-i18n="pr.sub">Three UX/UI projects: the problem, the method, what I made myself and what I would do differently.</p>
+                </div>
+                <div class="works">
+                    <a class="work" href="#campus-guide">
+                        <div class="work-media"><div class="phones">
+                            <img src="assets/img/cg-home.jpg" width="772" height="1393" alt="Campus Guide start screen with room search" data-i18n-alt="cg.alt1" loading="lazy">
+                            <img src="assets/img/cg-route.jpg" width="769" height="1357" alt="Campus Guide route drawn on a floor plan" data-i18n-alt="cg.alt2" loading="lazy">
+                            <img src="assets/img/cg-arrive.jpg" width="792" height="1226" alt="Campus Guide screen shown in front of the target room" data-i18n-alt="cg.alt3" loading="lazy">
+                        </div></div>
+                        <div>
+                            <p class="work-meta" data-i18n="pr.cg.meta">L2, semester 4 · Team of four</p>
+                            <h3><span data-i18n="cg.title">Campus Guide</span></h3>
+                            <p class="sum" data-i18n="pr.cg.sum">A web app that guides first-year students from the entrance to their lecture room. My part: field research, persona, Lean UX Canvas and test preparation.</p>
+                            <span class="go"><span data-i18n="pr.read">Read the case study</span> <span class="arr" aria-hidden="true">→</span></span>
+                        </div>
+                    </a>
+                    <a class="work" href="#netflix">
+                        <div class="work-media"><img src="assets/img/nf-concept.png" width="1600" height="1000" alt="Concept visual of a Learn a language area with language, level, matching titles and a progress card" data-i18n-alt="nf.alt.concept" loading="lazy"></div>
+                        <div>
+                            <p class="work-meta" data-i18n="pr.nf.meta">L2, semester 3 · Individual</p>
+                            <h3><span data-i18n="nf.title">Learning a Language with Netflix</span></h3>
+                            <p class="sum" data-i18n="pr.nf.sum">A UX study of Netflix: a survey, a persona, tests of the current app, and a concept for a language-learning mode.</p>
+                            <span class="go"><span data-i18n="pr.read">Read the case study</span> <span class="arr" aria-hidden="true">→</span></span>
+                        </div>
+                    </a>
+                    <a class="work" href="#cameroon">
+                        <div class="work-media cover-cm"><img src="assets/img/cm-cover.png" width="1600" height="1000" alt="Illustration of two phone screens showing stylised Cameroonian landscapes with four section tabs" data-i18n-alt="cm.alt.cover" loading="lazy"></div>
+                        <div>
+                            <p class="work-meta" data-i18n="pr.cm.meta">L1 · Individual · Reworked in semester 5</p>
+                            <h3><span data-i18n="cm.title">Cameroon, Africa in Miniature</span></h3>
+                            <p class="sum" data-i18n="pr.cm.sum">My first complete mobile interface in Figma, a tourism concept for natural sites in Cameroon. I am revisiting it with a focus on visitors' needs.</p>
+                            <span class="go"><span data-i18n="pr.read">Read the case study</span> <span class="arr" aria-hidden="true">→</span></span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="sec-head sub-head">
+                    <h2 data-i18n="pr.also">Also: editorial design</h2>
+                    <p data-i18n="pr.also.sub">Not a digital product, but the same question: how do you make complex information easy to follow?</p>
+                </div>
+                <div class="works">
+                    <a class="work" href="#student-guide">
+                        <div class="work-media contain"><img src="assets/img/guide-cover.jpg" width="297" height="427" alt="Guide cover: title, subtitle and logos of the partner institutions over a group photo of students" data-i18n-alt="sg.alt.cover" loading="lazy"></div>
+                        <div>
+                            <p class="work-meta" data-i18n="pr.sg.meta">DFHI-ISFATES · Canva, A5, 64 pages · In finalisation</p>
+                            <h3><span data-i18n="sg.title">International Student Guide</span></h3>
+                            <p class="sum" data-i18n="pr.sg.sum">A practical guide that turns scattered administrative rules into a clear timeline for students joining the Franco-German programme from outside the EU.</p>
+                            <span class="go"><span data-i18n="pr.read">Read the case study</span> <span class="arr" aria-hidden="true">→</span></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec" id="about">
+            <div class="wrap about-grid">
+                <div class="about-text">
+                    <h2 class="big" data-i18n="ab.h2">About</h2>
+                    <p data-i18n="ab.p1">I study web engineering in a Franco-German programme, and I like the moment when a confusing screen becomes obvious.</p>
+                    <p data-i18n="ab.p2">I'm a Bachelor student in Computer Science and Web Engineering in the binational ISFATES programme (HTW Saar and Université de Lorraine). My interest is UX/UI design and the design of digital products. My web development basics let me talk to developers, and I check ideas with the people who will use them.</p>
+                    <p data-i18n="ab.p3">I grew up in Cameroon, finished school in Douala, and now study between France and Germany. Working in three languages and two university systems taught me to adapt quickly and to explain things clearly to different audiences.</p>
+                </div>
+                <div class="kv">
+                    <div>
+                        <h3 data-i18n="ab.exp">Experience</h3>
+                        <div class="timeline">
+                            <div class="tl-item">
+                                <div class="tl-date" data-i18n="ab.exp.date">Since May 2026</div>
+                                <div>
+                                    <h4 data-i18n="ab.exp.role">Communication &amp; events assistant</h4>
+                                    <p data-i18n="ab.exp.org">DFHI (Deutsch-Französisches Hochschulinstitut), Saarbrücken</p>
+                                    <ul>
+                                        <li data-i18n="ab.exp.b1">Creating a practical guide for students from non-EU countries (admission, visa, housing, daily life) in Canva</li>
+                                        <li data-i18n="ab.exp.b2">Writing video scripts and preparing presentation materials for the institute</li>
+                                        <li data-i18n="ab.exp.b3">Co-organising events such as open days and partnership signings</li>
+                                        <li data-i18n="ab.exp.b4">Intercultural support for international students</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 data-i18n="ab.edu">Education</h3>
+                        <div class="timeline">
+                            <div class="tl-item">
+                                <div class="tl-date" data-i18n="ab.edu.d1">Since 2024</div>
+                                <div>
+                                    <h4 data-i18n="ab.edu.t1">Bachelor in Computer Science and Web Engineering</h4>
+                                    <p data-i18n="ab.edu.o1">DFHI, HTW Saar and Université de Lorraine (Metz, Saarbrücken)</p>
+                                </div>
+                            </div>
+                            <div class="tl-item">
+                                <div class="tl-date">2022</div>
+                                <div>
+                                    <h4 data-i18n="ab.edu.t2">Baccalauréat C (French Abitur)</h4>
+                                    <p data-i18n="ab.edu.o2">Mathematics, physics, computer science. <br/> Du Vaal International School, Douala, Cameroon</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 data-i18n="ab.ux">UX skills</h3>
+                        <ul class="small">
+                            <li data-i18n="ab.ux.1">UX/UI design and concept: user-centred design, wireframing, prototyping, information architecture, visual design, responsive web design</li>
+                            <li data-i18n="ab.ux.2">Research and usability: UX research basics, user needs, usability, concept design for digital products</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 data-i18n="ab.tools">Tools</h3>
+                        <ul><li data-i18n="ab.tools.1">Figma, Miro, Canva</li><li data-i18n="ab.tools.2">HTML, CSS, CSS Grid, WordPress / CMS</li><li data-i18n="ab.tools.3">Java, C, Python (basics)</li></ul>
+                    </div>
+                    <div>
+                        <h3 data-i18n="ab.lang">Languages</h3>
+                        <ul><li data-i18n="ab.lang.1">French, native</li><li data-i18n="ab.lang.2">English, fluent</li><li data-i18n="ab.lang.3">German, B2–C1</li></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="wrap contact-grid">
+                <div class="contact-main">
+                    <h2 data-i18n="ct.h2">How about we work together? <br/>Starting in April 2027?</h2>
+                    <p class="lead" data-i18n="ct.lead">I am currently looking for a required internship starting in April 2027 in the fields of UX/UI Design, Product Design, or Front-End Development with a focus on UX.</p>
+                    <div class="cta-row">
+                        <a class="btn" data-mail href="mailto:ctiokam@gmail.com" data-i18n="ct.mail">Email me</a>
+                        <a class="btn ghost" href="https://www.linkedin.com/in/grace-cardle-tiokam-368056360" target="_blank" rel="noopener"><span data-i18n="ct.li">LinkedIn profile</span><span class="sr" data-i18n="ext.new"> (opens in a new tab)</span> ↗</a>
+                        <a class="btn ghost" href="https://wa.me/33667412635" target="_blank" rel="noopener"><span data-i18n="ct.wa">WhatsApp me</span><span class="sr" data-i18n="ext.new"> (opens in a new tab)</span> ↗</a>
+                    </div>
+                    <div class="mail-line">
+                        <code id="email">ctiokam@gmail.com</code>
+                        <button class="btn ghost small" type="button" id="copy" data-i18n="ct.copy">Copy address</button>
+                        <span class="sr" role="status" id="copy-status"></span>
+                    </div>
+                </div>
+                <figure class="contact-photo">
+                    <img src="assets/img/grace.jpg" width="900" height="1156" alt="Portrait of Grace Tiokam in a black blazer against a grey background" data-i18n-alt="hero.alt" loading="lazy">
+                </figure>
+            </div>
+        </section>
+    </div>
+
+    <!-- ================= CAMPUS GUIDE ================= -->
+    <article class="view" id="view-campus-guide" hidden>
+        <div class="wrap case-head">
+            <div class="pos">
+                <a class="back" href="#projects">← <span data-i18n="cs.all">All projects</span></a>
+                <span class="count" data-i18n="cg.pos">Project 1 of 3</span>
+            </div>
+            <h1 data-i18n="cg.title">Campus Guide</h1>
+            <p class="dek" data-i18n="cg.dek">A web app that guides first-year students from the entrance to their lecture room, tested with students on campus.</p>
+            <dl class="facts">
+                <div><dt data-i18n="f.context">Context</dt><dd data-i18n="cg.f.context">Elective module User Experience Engineering, HTW Saar. L2, semester 4</dd></div>
+                <div><dt data-i18n="f.type">Type</dt><dd data-i18n="cg.f.type">Academic team project, four students</dd></div>
+                <div><dt data-i18n="f.role">My part</dt><dd data-i18n="cg.f.role">User research, persona, Lean UX Canvas, MVP analysis, test preparation</dd></div>
+                <div><dt data-i18n="f.tools">Tools</dt><dd data-i18n="cg.f.tools">Paper prototype, HTML/CSS/JavaScript prototype (by a teammate), GitHub Pages</dd></div>
+            </dl>
+            <nav class="chips" aria-label="In this case study" data-i18n-aria="cs.jump">
+                <a href="#campus-guide/user-research" data-i18n="chip.research">User Research</a>
+                <a href="#campus-guide/persona" data-i18n="chip.persona">Persona</a>
+                <a href="#campus-guide/ideation" data-i18n="chip.ideation">Ideation</a>
+                <a href="#campus-guide/wireframes" data-i18n="chip.wireframes">Wireframes</a>
+                <a href="#campus-guide/prototype" data-i18n="chip.prototype">Prototype</a>
+                <a href="#campus-guide/usability-test" data-i18n="chip.test">Usability Test</a>
+                <a href="#campus-guide/reflection" data-i18n="chip.reflection">Reflection</a>
+            </nav>
+        </div>
+        <div class="wrap">
+            <section class="story" id="campus-guide-overview"><h2 data-i18n="s.overview">Overview</h2><div class="body">
+                <p data-i18n="cg.ov.1">In the elective module User Experience Engineering, our team of four picked a problem we knew from experience: finding rooms on the Alt-Saarbrücken campus of HTW Saar. Some of us had been late to class because of it.</p>
+                <p data-i18n="cg.ov.2">The report and the prototype are in German.</p>
+            </div></section>
+
+            <section class="story" id="campus-guide-problem"><h2 data-i18n="s.problem">Problem</h2><div class="body">
+                <p data-i18n="cg.pb.1">Students, mostly first-years, lose time and arrive late because the campus is hard to read: confusing building numbers, an unclear structure and little signage. The first weeks are the hardest, and breaks of 15 minutes leave no time for detours.</p>
+            </div></section>
+
+            <section class="story" id="campus-guide-goals"><h2 data-i18n="s.goals">Goals</h2><div class="body">
+                <ul>
+                    <li data-i18n="cg.g.1">Business goal in our Lean UX Canvas: raise punctuality by 5% by the next semester start. It is a target we set, not a measured result.</li>
+                    <li data-i18n="cg.g.2">MVP limited to Building 8 so that floor plans stay readable on a phone.</li>
+                    <li data-i18n="cg.g.3">Core features: room search, building display, route from the main entrance to the room.</li>
+                </ul>
+            </div></section>
+
+            <section class="story" id="campus-guide-role"><h2 data-i18n="s.role">My role and the team</h2><div class="body">
+                <p data-i18n="cg.role.1">We were four students and shared the work. The table separates what I did from what the team did.</p>
+                <div class="table-wrap"><table>
+                    <thead><tr><th data-i18n="cg.role.th1">What</th><th data-i18n="cg.role.th2">Who</th></tr></thead>
+                    <tbody>
+                    <tr><td data-i18n="cg.role.r1">Field research with 15 students, persona, Lean UX Canvas, MVP analysis</td><td data-i18n="cg.role.w1">I worked on these, with the team</td></tr>
+                    <tr><td data-i18n="cg.role.r2">Test script (14 steps) and preparation of the usability test</td><td data-i18n="cg.role.w2">I prepared it together with a teammate</td></tr>
+                    <tr><td data-i18n="cg.role.r3">Brainstorming, choice of concept, paper prototype, wireframes</td><td data-i18n="cg.role.w3">The whole team</td></tr>
+                    <tr><td data-i18n="cg.role.r4">Interactive HTML/CSS/JavaScript prototype</td><td data-i18n="cg.role.w4">Mainly my teammate Wahiba Sebia. I did not code it.</td></tr>
+                    </tbody></table></div>
+            </div></section>
+
+            <section class="story" id="campus-guide-user-research"><h2 data-i18n="s.research">User research</h2><div class="body">
+                <p data-i18n="cg.ur.1">We observed and interviewed 15 students on campus, mostly first-years, who have the most trouble with first orientation. We interviewed without a fixed script so we could adapt questions to the place, then sorted and counted the answers.</p>
+                <div class="table-wrap"><table>
+                    <thead><tr><th data-i18n="cg.ur.th1">Problem named</th><th data-i18n="cg.ur.th2">Mentions</th></tr></thead>
+                    <tbody>
+                    <tr><td data-i18n="cg.ur.r1">Confusing building numbering</td><td class="n">5</td></tr>
+                    <tr><td data-i18n="cg.ur.r2">Unclear building structure</td><td class="n">3</td></tr>
+                    <tr><td data-i18n="cg.ur.r3">Insufficient signage</td><td class="n">2</td></tr>
+                    <tr><td data-i18n="cg.ur.r4">No ramps at some entrances</td><td class="n">2</td></tr>
+                    <tr><td data-i18n="cg.ur.r5">Broken car park display</td><td class="n">2</td></tr>
+                    <tr><td data-i18n="cg.ur.r6">Long distance between rooms in short breaks</td><td class="n">1</td></tr>
+                    </tbody></table></div>
+                <p data-i18n="cg.ur.2">We focused on the orientation problems (numbering, building structure and signage) and set aside ramps, parking and break length for a later round.</p>
+            </div></section>
+
+            <section class="story" id="campus-guide-persona"><h2 data-i18n="s.persona">Persona</h2><div class="body">
+                <p data-i18n="cg.pe.1">Our key persona, Emma, is a first-semester student who wants to arrive on time because some lecturers do not admit latecomers. She drives, parks, and finds her way with her phone. Her key need: know quickly which building her next room is in and how to get there, because breaks of 15 minutes leave no time for detours.</p>
+            </div></section>
+
+            <section class="story" id="campus-guide-ideation"><h2 data-i18n="s.ideation">Ideation</h2><div class="body">
+                <p data-i18n="cg.id.1">We brainstormed in a group chat so that team members who were ill could take part. We allowed deliberately absurd ideas, such as a robot dog that walks ahead, smart glasses and drones. They raised the number of ideas and lowered inhibitions. The text chat made clustering hard, so a shared visual board would have worked better.</p>
+                <p data-i18n="cg.id.2">We combined a room finder with route search and QR codes, because it works on the phone students already have.</p>
+            </div></section>
+
+            <section class="story" id="campus-guide-wireframes"><h2 data-i18n="s.wireframes">Wireframes</h2><div class="body">
+                <p data-i18n="cg.wf.1">The team sketched wireframes and a paper prototype with the QR code as the starting point.</p>
+                <figure class="fig"><img src="assets/img/cg-wire.png" width="1200" height="311" alt="Three sketched wireframes: room search, building plan and route, room found" data-i18n-alt="cg.wf.alt" loading="lazy"><figcaption data-i18n="cg.wf.cap">Wireframes: search, route, arrival. Placeholder example (Building 1, room 203); the MVP covers Building 8.</figcaption></figure>
+                <figure class="fig" style="max-width:340px"><img src="assets/img/cg-paper.jpg" width="1200" height="1600" alt="Hand-drawn paper prototype showing three floors with a red route and a handwritten you-are-here marker" data-i18n-alt="cg.paper.alt" loading="lazy"><figcaption data-i18n="cg.paper.cap">Paper prototype with the QR starting point.</figcaption></figure>
+            </div></section>
+
+            <section class="story" id="campus-guide-prototype"><h2 data-i18n="s.prototype">Prototype</h2><div class="body">
+                <div class="fig-row phones3">
+                    <img src="assets/img/cg-home.jpg" width="772" height="1393" alt="Campus Guide start screen with room search and an accessible mode switch" data-i18n-alt="cg.alt1b" loading="lazy">
+                    <img src="assets/img/cg-route.jpg" width="769" height="1357" alt="Route drawn in cyan on the ground floor plan with an instruction to take the stairs" data-i18n-alt="cg.alt2b" loading="lazy">
+                    <img src="assets/img/cg-arrive.jpg" width="792" height="1226" alt="Final screen: you are standing in front of room 8202" data-i18n-alt="cg.alt3b" loading="lazy">
+                </div>
+                <p class="note" data-i18n="cg.pt.cap">The high-fidelity MVP: search, route with an arrow, step-by-step text. The interface is in German.</p>
+                <ol>
+                    <li data-i18n="cg.pt.1">Scan a QR code at the entrance of Building 8. The main entrance becomes the fixed starting point, with no install and no sign-up.</li>
+                    <li data-i18n="cg.pt.2">Type a room number. Suggestions appear while typing and the right floor plan opens.</li>
+                    <li data-i18n="cg.pt.3">Follow a bright line with an arrowhead, with text steps such as "Take the stairs up two floors".</li>
+                    <li data-i18n="cg.pt.4">Switch on the accessible mode to route through the elevator instead of the stairs.</li>
+                    <li data-i18n="cg.pt.5">See a success screen at the door.</li>
+                </ol>
+                <p data-i18n="cg.pt.6">The prototype is plain HTML, CSS and JavaScript with the route drawn on a canvas. There is no backend, so it loads fast on campus Wi-Fi.</p>
+            </div></section>
+
+            <section class="story" id="campus-guide-usability-test"><h2 data-i18n="s.test">Usability test</h2><div class="body">
+                <p data-i18n="cg.ut.1">We tested the prototype with four students at the entrance of Building 8, using think-aloud and a SUS questionnaire. They started from the QR code, found a room, followed the route to another floor, and tried the accessible mode.</p>
+                <div class="stats">
+                    <div class="stat"><b>87.5</b><span data-i18n="cg.ut.s1">average SUS score (85, 90, 85, 90)</span></div>
+                    <div class="stat"><b>5 / 5</b><span data-i18n="cg.ut.s2">ease of starting with the QR code</span></div>
+                    <div class="stat"><b>5 / 5</b><span data-i18n="cg.ut.s3">speed of the room search</span></div>
+                    <div class="stat"><b>4.2 / 5</b><span data-i18n="cg.ut.s4">clarity of the route on the plans</span></div>
+                </div>
+                <h3 data-i18n="cg.ut.h">Three problems, three changes</h3>
+                <div class="table-wrap"><table>
+                    <thead><tr><th data-i18n="cg.ut.th1">Observed</th><th data-i18n="cg.ut.th2">Priority</th><th data-i18n="cg.ut.th3">Change</th></tr></thead>
+                    <tbody>
+                    <tr><td data-i18n="cg.ut.r1">Unclear where the route starts</td><td data-i18n="pri.high">High</td><td data-i18n="cg.ut.c1">The main entrance is a fixed, marked starting point</td></tr>
+                    <tr><td data-i18n="cg.ut.r2">Dashed line hard to follow</td><td data-i18n="pri.high">High</td><td data-i18n="cg.ut.c2">Solid cyan line with an arrowhead at the room</td></tr>
+                    <tr><td data-i18n="cg.ut.r3">Plan alone not enough at floor changes</td><td data-i18n="pri.med">Medium</td><td data-i18n="cg.ut.c3">Step-by-step text instructions with icons</td></tr>
+                    </tbody></table></div>
+            </div></section>
+
+            <section class="story" id="campus-guide-try"><h2 data-i18n="s.try">Try the prototype</h2><div class="body">
+                <p data-i18n="cg.try.1">The interactive prototype was mainly built by my teammate Wahiba Sebia and is hosted on GitHub Pages. It opens in a new tab. The interface is in German and works best on a phone or in a narrow window.</p>
+                <div class="cta-row" style="margin:0">
+                    <a class="btn" href="https://GraceTiokam.github.io/campus-guide/" target="_blank" rel="noopener"><span data-i18n="cg.try.b1">Open the interactive prototype</span><span class="sr" data-i18n="ext.new"> (opens in a new tab)</span> ↗</a>
+                    <a class="btn ghost" href="https://github.com/GraceTiokam/campus-guide" target="_blank" rel="noopener"><span data-i18n="cg.try.b2">Source code on GitHub</span><span class="sr" data-i18n="ext.new"> (opens in a new tab)</span> ↗</a>
+                </div>
+            </div></section>
+
+            <section class="story" id="campus-guide-reflection"><h2 data-i18n="s.reflection">Reflection and next steps</h2><div class="body">
+                <p data-i18n="cg.rf.1">Limiting the scope to one building let us finish a tested product. Extending it to the rest of the campus and adding indoor positioning are the next steps.</p>
+                <p data-i18n="cg.rf.2">Four testers are enough to find the big problems, not enough to claim a general score. And next time I would run the brainstorm on a shared board, as we noted in the report.</p>
+            </div></section>
+        </div>
+        <div class="wrap pn">
+            <a class="pv" href="#cameroon"><small data-i18n="pn.prev">← Previous project</small><strong data-i18n="cm.title">Cameroon, Africa in Miniature</strong></a>
+            <a class="nx" href="#netflix"><small data-i18n="pn.next">Next project →</small><strong data-i18n="nf.title">Learning a Language with Netflix</strong></a>
+            <p class="pn-all"><a href="#projects" data-i18n="cs.allfull">Back to all projects</a></p>
+        </div>
+    </article>
+
+    <!-- ================= NETFLIX ================= -->
+    <article class="view" id="view-netflix" hidden>
+        <div class="wrap case-head">
+            <div class="pos">
+                <a class="back" href="#projects">← <span data-i18n="cs.all">All projects</span></a>
+                <span class="count" data-i18n="nf.pos">Project 2 of 3</span>
+            </div>
+            <h1 data-i18n="nf.title">Learning a Language with Netflix</h1>
+            <p class="dek" data-i18n="nf.dek">A UX study of Netflix: a survey, a persona, tests of the current app, and a concept for a language-learning mode.</p>
+            <dl class="facts">
+                <div><dt data-i18n="f.context">Context</dt><dd data-i18n="nf.f.context">Human-computer interaction course, ISFATES. L2, semester 3</dd></div>
+                <div><dt data-i18n="f.type">Type</dt><dd data-i18n="nf.f.type">Academic project, individual</dd></div>
+                <div><dt data-i18n="f.role">My part</dt><dd data-i18n="nf.f.role">Everything: research, synthesis, ideation, concept and tests</dd></div>
+                <div><dt data-i18n="f.tools">Tools</dt><dd data-i18n="nf.f.tools">Miro, Google Forms, Figma</dd></div>
+            </dl>
+            <nav class="chips" aria-label="In this case study" data-i18n-aria="cs.jump">
+                <a href="#netflix/user-research" data-i18n="chip.research">User Research</a>
+                <a href="#netflix/persona" data-i18n="chip.persona">Persona</a>
+                <a href="#netflix/ideation" data-i18n="chip.ideation">Ideation</a>
+                <a href="#netflix/concept-design" data-i18n="chip.concept">Concept Design</a>
+                <a href="#netflix/usability-test" data-i18n="chip.test">Usability Test</a>
+                <a href="#netflix/reflection" data-i18n="chip.reflection">Reflection</a>
+            </nav>
+        </div>
+        <div class="wrap">
+            <figure class="hero-img mock"><img src="assets/img/nf-concept.png" width="1600" height="1000" alt="Concept visual of a Learn a language area with language, level, matching titles and a progress card" data-i18n-alt="nf.alt.concept"><figcaption class="fig" style="font-size:.9rem;color:var(--muted);margin-top:8px" data-i18n="nf.hero.cap">My concept: pick a language and a level, get matching titles, see your progress. A student proposal, not an official Netflix interface. Titles in the visual are invented.</figcaption></figure>
+
+            <section class="story" id="netflix-overview"><h2 data-i18n="s.overview">Overview</h2><div class="body">
+                <p data-i18n="nf.ov.1">Netflix is one of the most used interfaces in the world, and I use it every week. For my HCI course I treated it as a case: where does a leading product still make people work harder than they should?</p>
+                <p data-i18n="nf.ov.2">The report follows four phases: explore, ideate, generate and evaluate.</p>
+            </div></section>
+
+            <section class="story" id="netflix-problem"><h2 data-i18n="s.problem">Problem</h2><div class="body">
+                <p data-i18n="nf.pb.1">Two themes came back in every step. Choosing takes too long in a very large catalogue, which causes decision fatigue. And some viewers already use Netflix to practise languages, but the interface gives them little support for it.</p>
+            </div></section>
+
+            <section class="story" id="netflix-goals"><h2 data-i18n="s.goals">Goals</h2><div class="body">
+                <ul>
+                    <li data-i18n="nf.g.1">Understand how people choose what to watch and what frustrates them.</li>
+                    <li data-i18n="nf.g.2">Explore ideas in a structured way, not only the first one that comes to mind.</li>
+                    <li data-i18n="nf.g.3">Check the current app with real users, and turn the findings into one concept.</li>
+                </ul>
+            </div></section>
+
+            <section class="story" id="netflix-role"><h2 data-i18n="s.role2">My role</h2><div class="body">
+                <p data-i18n="nf.role.1">This was an individual project. I ran the survey, synthesised the answers, led the ideation, designed the concept and ran the tests of the current app.</p>
+            </div></section>
+
+            <section class="story" id="netflix-user-research"><h2 data-i18n="s.research">User research</h2><div class="body">
+                <p data-i18n="nf.ur.1">I wrote a short survey of 8 questions and shared it through WhatsApp and with people around me. It collected 13 answers.</p>
+                <div class="stats">
+                    <div class="stat"><b>10 / 13</b><span data-i18n="nf.ur.s1">of 13 chose an improved offline mode as the feature to add (several choices allowed)</span></div>
+                    <div class="stat"><b>4 / 13</b><span data-i18n="nf.ur.s2">chose better search filters</span></div>
+                </div>
+                <figure class="fig"><img src="assets/img/nf-survey.jpg" width="859" height="505" alt="Bar chart of survey answers to which feature respondents would like added" data-i18n-alt="nf.ur.alt" loading="lazy"><figcaption data-i18n="nf.ur.cap">Survey: the feature people would add (survey and charts were made in French).</figcaption></figure>
+                <p class="note" data-i18n="nf.ur.note">Thirteen answers from my own circle are a small, informal sample. They guided my thinking but prove nothing general.</p>
+            </div></section>
+
+            <section class="story" id="netflix-persona"><h2 data-i18n="s.persona2">Persona and synthesis</h2><div class="body">
+                <p data-i18n="nf.pe.1">I turned the answers into a persona, an empathy map and an experience map that follows a viewer's path to find pain points. The persona is a 26-year-old polyglot who watches daily on tablet and TV, practises languages with series, and is frustrated by slow choosing and imprecise subtitles.</p>
+                <figure class="fig"><img src="assets/img/nf-empathy.jpg" width="1200" height="687" alt="Empathy map with sections for hearing, seeing, thinking, feeling, saying and doing" data-i18n-alt="nf.pe.alt" loading="lazy"><figcaption data-i18n="nf.pe.cap">Empathy map for a typical Netflix user.</figcaption></figure>
+                <h3 data-i18n="nf.pe.h">From observations to the concept</h3>
+                <div class="table-wrap"><table>
+                    <thead><tr><th data-i18n="nf.pe.th1">Observation</th><th data-i18n="nf.pe.th2">Need</th><th data-i18n="nf.pe.th3">In the concept</th></tr></thead>
+                    <tbody>
+                    <tr><td data-i18n="nf.pe.r1">Choosing takes too long in a very large catalogue (decision fatigue)</td><td data-i18n="nf.pe.n1">A shorter way to a good pick</td><td data-i18n="nf.pe.c1">Titles already matched to the chosen language and level</td></tr>
+                    <tr><td data-i18n="nf.pe.r2">Some viewers already practise languages with series (persona, ideation)</td><td data-i18n="nf.pe.n2">Support for this use inside the interface</td><td data-i18n="nf.pe.c2">A dedicated Learn a language tab, with vocabulary and pronunciation panels</td></tr>
+                    <tr><td data-i18n="nf.pe.r3">Changing the language of a download means starting playback first (test of the current app)</td><td data-i18n="nf.pe.n3">Language settings that are easy to reach</td><td data-i18n="nf.pe.c3">Language and level are chosen first, before any title</td></tr>
+                    </tbody></table></div>
+                <p class="note" data-i18n="nf.pe.note">Offline mode was the most chosen feature in the survey (10 of 13). The language-learning concept builds on the persona and the ideation rather than on that top answer. The links in this table are my reasoning, not tested results.</p>
+            </div></section>
+
+            <section class="story" id="netflix-ideation"><h2 data-i18n="s.ideation">Ideation</h2><div class="body">
+                <ul>
+                    <li data-i18n="nf.id.1"><strong>UX Devil.</strong> Describe the worst possible experience, then turn each point into a fix.</li>
+                    <li data-i18n="nf.id.2"><strong>Lotus Blossom.</strong> Grow one theme into eight, then each of those into eight more.</li>
+                    <li data-i18n="nf.id.3"><strong>Storyboard.</strong> Three frames showing a learner who moves from a rigid course to learning through series.</li>
+                </ul>
+                <div class="fig-row">
+                    <figure class="fig"><img src="assets/img/nf-lotus.jpg" width="889" height="895" alt="Lotus Blossom grid expanding the learning mode idea into sub-ideas" data-i18n-alt="nf.id.alt1" loading="lazy"><figcaption data-i18n="nf.id.cap1">Lotus Blossom around the language-learning idea.</figcaption></figure>
+                    <figure class="fig"><img src="assets/img/nf-storyboard.jpg" width="1051" height="477" alt="Three-frame storyboard of a learner who starts practising a language with series" data-i18n-alt="nf.id.alt2" loading="lazy"><figcaption data-i18n="nf.id.cap2">Storyboard: from a rigid course to learning through series.</figcaption></figure>
+                </div>
+            </div></section>
+
+            <section class="story" id="netflix-concept-design"><h2 data-i18n="s.concept">Concept design</h2><div class="body">
+                <p data-i18n="nf.cd.1">A new Learn a language tab. The viewer picks a language and a level, from beginner to advanced, and gets titles matched to that level. Extra panels cover vocabulary and pronunciation, and a progress view shows the level reached.</p>
+                <p data-i18n="nf.cd.2">The visual at the top of this page is the redrawn concept: one clear path from language, to level, to titles, with progress kept on the side.</p>
+            </div></section>
+
+            <section class="story" id="netflix-usability-test"><h2 data-i18n="s.test">Usability test</h2><div class="body">
+                <div class="callout">
+                    <span data-i18n="nf.ut.c1"><b>Tested:</b> the existing Netflix app (expert review, user test, SUS).</span>
+                    <span data-i18n="nf.ut.c2"><b>Not tested yet:</b> my language-learning concept.</span>
+                </div>
+                <p data-i18n="nf.ut.1">An expert review of the existing app against six groups of criteria found strong guidance and error handling, and weaker results on cognitive load and user control, mostly because of intrusive automatic playback.</p>
+                <p data-i18n="nf.ut.2">Five users then completed four scenarios on mobile and TV: change the download language, find My List, set parental control, and remove a finished series from Continue Watching. They liked autoplayed trailers and the easy offline mode. They struggled with three things:</p>
+                <ul>
+                    <li data-i18n="nf.ut.l1">A busy TV home screen. Users asked for a calm mode without autoplaying video.</li>
+                    <li data-i18n="nf.ut.l2">Having to start playback before they can change the language of a download.</li>
+                    <li data-i18n="nf.ut.l3">A thumbs up and down that feels too coarse to tell the algorithm what they dislike.</li>
+                </ul>
+                <div class="stats"><div class="stat"><b>94</b><span data-i18n="nf.ut.s1">SUS score out of 100 for the current app, from a small sample</span></div></div>
+            </div></section>
+
+            <section class="story" id="netflix-reflection"><h2 data-i18n="s.reflection">Reflection and next steps</h2><div class="body">
+                <p data-i18n="nf.rf.1">I designed the concept from the survey and the persona, but I tested only the current interface. Next time I would put the new tab in front of users too, to check whether it meets the needs I identified.</p>
+                <p data-i18n="nf.rf.2">A SUS of 94 says the product is easy to use. It does not say what to improve. The observed test sessions gave me the useful findings.</p>
+                <p class="note" data-i18n="nf.rf.3">This is an academic study of a third-party product. It is not affiliated with Netflix, and all Netflix names belong to their owner.</p>
+            </div></section>
+        </div>
+        <div class="wrap pn">
+            <a class="pv" href="#campus-guide"><small data-i18n="pn.prev">← Previous project</small><strong data-i18n="cg.title">Campus Guide</strong></a>
+            <a class="nx" href="#cameroon"><small data-i18n="pn.next">Next project →</small><strong data-i18n="cm.title">Cameroon, Africa in Miniature</strong></a>
+            <p class="pn-all"><a href="#projects" data-i18n="cs.allfull">Back to all projects</a></p>
+        </div>
+    </article>
+
+    <!-- ================= CAMEROON ================= -->
+    <article class="view" id="view-cameroon" hidden>
+        <div class="wrap case-head">
+            <div class="pos">
+                <a class="back" href="#projects">← <span data-i18n="cs.all">All projects</span></a>
+                <span class="count" data-i18n="cm.pos">Project 3 of 3</span>
+            </div>
+            <h1 data-i18n="cm.title">Cameroon, Africa in Miniature</h1>
+            <p class="dek" data-i18n="cm.dek">A mobile tourism concept for natural sites in Cameroon. In French: <span lang="fr">Le Cameroun, l'Afrique en miniature</span>.</p>
+            <dl class="facts">
+                <div><dt data-i18n="f.context">Context</dt><dd data-i18n="cm.f.context">Graphic and web design course. L1. Reworked in semester 5</dd></div>
+                <div><dt data-i18n="f.type">Type</dt><dd data-i18n="cm.f.type">Academic project, individual</dd></div>
+                <div><dt data-i18n="f.status">Status</dt><dd data-i18n="cm.f.status">Version 1 documented here. A new version is in progress.</dd></div>
+                <div><dt data-i18n="f.tools">Tools</dt><dd>Figma</dd></div>
+            </dl>
+            <nav class="chips" aria-label="In this case study" data-i18n-aria="cs.jump">
+                <a href="#cameroon/information-structure" data-i18n="chip.ia">Information Structure</a>
+                <a href="#cameroon/visual-design" data-i18n="chip.visual">Visual Design</a>
+                <a href="#cameroon/figma" data-i18n="chip.figma">Figma File</a>
+                <a href="#cameroon/reflection" data-i18n="chip.reflection">Reflection</a>
+            </nav>
+        </div>
+        <div class="wrap">
+            <figure class="hero-img mock" style="background:#fdf4e3"><img src="assets/img/cm-cover.png" width="1600" height="1000" alt="Illustration of two phone screens showing stylised Cameroonian landscapes with four section tabs" data-i18n-alt="cm.alt.cover"><figcaption class="fig" style="font-size:.9rem;color:#6a5551;margin-top:8px" data-i18n="cm.hero.cap">Illustration for this page, drawn from the project's structure and palette. It is not a screenshot of the Figma file.</figcaption></figure>
+            <p class="note rights" data-i18n="cm.rights">Some original Figma sketches and associated visuals cannot be displayed publicly due to publication rights restrictions.</p>
+
+            <section class="story" id="cameroon-overview"><h2 data-i18n="s.overview">Overview</h2><div class="body">
+                <p data-i18n="cm.ov.1">Cameroon is often called Africa in miniature because it holds so many of the continent's landscapes. This was my first complete mobile interface in Figma, made in my first year as a design exercise, and it was an individual project.</p>
+                <p data-i18n="cm.ov.2">The goal was an interface that promotes ecotourism and presents natural sites such as Waza National Park and the Kola gorges in a simple, attractive way.</p>
+                <p data-i18n="cm.ov.3">The first concept planned ten sites, one per region. The current version presents three. I mention both so that nobody mistakes one for the other.</p>
+            </div></section>
+
+            <section class="story" id="cameroon-role"><h2 data-i18n="s.role2">My role</h2><div class="body">
+                <p data-i18n="cm.role.1">I did the whole project: the structure of the information, the palette of natural colours, the typography and the visual design in Figma.</p>
+            </div></section>
+
+            <section class="story" id="cameroon-information-structure"><h2 data-i18n="s.ia">Information structure</h2><div class="body">
+                <p data-i18n="cm.ia.1">Each site has the same four sections, so a visitor learns the pattern once:</p>
+                <ul>
+                    <li data-i18n="cm.ia.l1"><strong>Presentation:</strong> a short description that makes people curious.</li>
+                    <li data-i18n="cm.ia.l2"><strong>Location:</strong> practical information about where the site is.</li>
+                    <li data-i18n="cm.ia.l3"><strong>Features:</strong> climate, fauna, flora, area, ecosystem.</li>
+                    <li data-i18n="cm.ia.l4"><strong>Visit:</strong> how to get there, threats and protection, practical tips.</li>
+                </ul>
+                <p data-i18n="cm.ia.2">The home screen shows one natural site per region. Navigation uses four tab buttons at the bottom of the screen. The darkest tab shows where you are, and only the text scrolls.</p>
+            </div></section>
+
+            <div class="desktop-container" lang="fr">
+                <div class="computer-frame">
+                    <div class="screen-desktop">
+
+                        <div>
+                            <div class="font-region big">Région</div>
+                            <div class="font-site-naturel big">Six naturel</div>
+                        </div>
+
+                        <div class="desktop-body">
+                            <div class="desktop-left">
+                                <div class="map-box-desktop">
+                                    <svg viewBox="0 0 500 320" style="width:100%; height:100%;" role="img" aria-label="Carte du Cameroun : Gorges de Kola près de Guider">
+                                        <rect width="500" height="320" fill="#eeddb8"/>
+                                        <path d="M50 280 L100 180 L140 80 L220 30 L260 90 L220 180 L250 280 Z" fill="#dfcb9d" stroke="#c0ad80" stroke-width="2"/>
+                                        <circle cx="170" cy="75" r="7" fill="#d00000"/>
+                                        <text x="182" y="80" font-family="Inter" font-weight="bold" font-size="14" fill="#d00000">GORGES DE KOLA</text>
+
+                                        <rect x="290" y="20" width="190" height="280" rx="8" fill="#f7ebd3" stroke="#d0c0a0"/>
+                                        <circle cx="380" cy="120" r="6" fill="#d00000"/>
+                                        <text x="380" y="105" font-family="Inter" font-size="12" font-weight="bold" text-anchor="middle" fill="#333">GUIDER</text>
+                                        <text x="380" y="140" font-family="Inter" font-size="11" font-weight="bold" text-anchor="middle" fill="#d00000">GORGES DE KOLA</text>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="desktop-right">
+                                <div class="font-site-naturel sub">Titre 1</div>
+
+                                <p class="font-body lead">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                </p>
+
+                                <div class="info-card-desktop">
+                                    <p class="font-body">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="desktop-nav-tabs">
+                            <button type="button" class="tab-btn">Présentation</button>
+                            <button type="button" class="tab-btn active" aria-current="true">Localisation</button>
+                            <button type="button" class="tab-btn">Caractéristique</button>
+                            <button type="button" class="tab-btn">Visiter</button>
+
+                            <div class="circle-btn dark">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <section class="story" id="cameroon-visual-design"><h2 data-i18n="s.visual">Visual design</h2><div class="body">
+                <p data-i18n="cm.vd.1">Natural tones that reflect the landscape and the warmth of the country: brown, terracotta orange and beige, with soft coloured backgrounds to group text and images. A plain sans-serif (Inter) for reading and a hand-drawn face (Mansalva) for titles and buttons.</p>
+                <div class="palette">
+                    <div style="background:#7a4a1e;color:#fdf4e3" data-i18n="cm.c.brown">Brown</div>
+                    <div style="background:#c9702f;color:#fff" data-i18n="cm.c.terra">Terracotta</div>
+                    <div style="background:#e6be79;color:#4a2c14" data-i18n="cm.c.sand">Sand</div>
+                    <div style="background:#d5dec1;color:#3a4a2c" data-i18n="cm.c.sage">Sage</div>
+                    <div style="background:#fdf4e3;color:#4a2c14;border:1px solid var(--line)" data-i18n="cm.c.cream">Cream</div>
+                </div>
+            </div></section>
+
+            <section class="story" id="cameroon-figma"><h2 data-i18n="s.figma">Figma file</h2><div class="body">
+                <p data-i18n="cm.fg.1">The design file is open to view in Figma.</p>
+                <div class="cta-row" style="margin:0">
+                    <a class="btn" href="https://www.figma.com/design/zSxVjMGcbRxcFCiTWbh8EI/Sites-Touristiques-du-Cameroun?node-id=0-1&amp;t=GguJXcHLtjAPiU8s-1" target="_blank" rel="noopener"><span>Figma</span><span class="sr" data-i18n="ext.new"> (opens in a new tab)</span> ↗</a>
+                </div>
+            </div></section>
+
+            <section class="story" id="cameroon-reflection"><h2 data-i18n="s.reflection">Reflection and next steps</h2><div class="body">
+                <p data-i18n="cm.rf.1">Version 1 was mainly about appearance and visual organisation. It has no user research and no tests. It shows my visual sense and my first steps in Figma, and it taught me why research comes first.</p>
+                <p data-i18n="cm.rf.2">In semester 5, in the course on interface and web ergonomics, I am taking the project up again. The aim is to understand visitors' needs better, to look at navigation and how well people understand the content, and to pay more attention to ecotourism.</p>
+                <p class="note" data-i18n="cm.rf.3">That research and testing are still ahead of me. Nothing from them is shown here yet.</p>
+            </div></section>
+        </div>
+        <div class="wrap pn">
+            <a class="pv" href="#netflix"><small data-i18n="pn.prev">← Previous project</small><strong data-i18n="nf.title">Learning a Language with Netflix</strong></a>
+            <a class="nx" href="#campus-guide"><small data-i18n="pn.next">Next project →</small><strong data-i18n="cg.title">Campus Guide</strong></a>
+            <p class="pn-all"><a href="#projects" data-i18n="cs.allfull">Back to all projects</a></p>
+        </div>
+    </article>
+
+    <!-- ================= STUDENT GUIDE ================= -->
+    <article class="view" id="view-student-guide" hidden>
+        <div class="wrap case-head">
+            <div class="pos">
+                <a class="back" href="#projects">← <span data-i18n="cs.all">All projects</span></a>
+                <span class="count" data-i18n="sg.pos">Editorial project</span>
+            </div>
+            <h1 data-i18n="sg.title">International Student Guide</h1>
+            <p class="dek" data-i18n="sg.dek">A practical guide that turns scattered administrative rules into a clear timeline for students joining the Franco-German programme from outside the EU.</p>
+            <dl class="facts">
+                <div><dt data-i18n="f.context">Context</dt><dd data-i18n="sg.f.context">DFHI-ISFATES, in collaboration with M. Hoffmann</dd></div>
+                <div><dt data-i18n="f.status">Status</dt><dd data-i18n="sg.f.status">In finalisation</dd></div>
+                <div><dt data-i18n="f.role">My part</dt><dd data-i18n="sg.f.role">Research, writing, information structure and layout</dd></div>
+                <div><dt data-i18n="f.format">Format</dt><dd data-i18n="sg.f.format">Canva, A5, 64 pages</dd></div>
+            </dl>
+            <nav class="chips" aria-label="In this case study" data-i18n-aria="cs.jump">
+                <a href="#student-guide/structure" data-i18n="chip.structure">Structure</a>
+                <a href="#student-guide/design" data-i18n="chip.design">Design Choices</a>
+                <a href="#student-guide/accuracy" data-i18n="chip.accuracy">Accuracy</a>
+                <a href="#student-guide/reflection" data-i18n="chip.reflection">Reflection</a>
+            </nav>
+        </div>
+        <div class="wrap">
+            <div class="hero-img"><div class="gallery3">
+                <figure class="fig"><img src="assets/img/guide-cover.jpg" width="297" height="427" alt="Guide cover: title, subtitle and logos of the partner institutions over a group photo of students" data-i18n-alt="sg.alt.cover"><figcaption data-i18n="sg.cap.cover">Cover (French)</figcaption></figure>
+                <figure class="fig"><img src="assets/img/guide-steps.jpg" width="273" height="388" alt="Guide page titled 9 major operational steps: a numbered route from preparing the application to getting the visa and leaving" data-i18n-alt="sg.alt.steps2"><figcaption data-i18n="sg.cap.steps">Overview: nine steps, in order (French)</figcaption></figure>
+                <figure class="fig"><img src="assets/img/guide-closing.jpg" width="315" height="445" alt="Closing page in German welcoming students to the programme, over a photo of smiling students" data-i18n-alt="sg.alt.closing"><figcaption data-i18n="sg.cap.closing">Closing page for Saarbrücken (German)</figcaption></figure>
+            </div></div>
+            <p class="note rights" data-i18n="sg.rights">Some original project visuals cannot be displayed publicly due to publication rights restrictions.</p>
+
+            <section class="story" id="student-guide-overview"><h2 data-i18n="s.overview">Overview</h2><div class="body">
+                <p data-i18n="sg.ov.1">Students from outside the EU who start the ISFATES programme have to handle many administrative steps before and during their studies: application, enrolment, visa, health insurance, housing and the move between France and Germany. Students from Cameroon, for example, join through a partnership with HITAS Douala. They start in Metz at the Université de Lorraine, then continue in Saarbrücken at HTW Saar. L2 students of the GCME specialisation also have a site in Luxembourg.</p>
+                <p data-i18n="sg.ov.2">The information sits on different university websites, official portals and internal documents. Procedures, offices and deadlines change from one country and one situation to the next.</p>
+            </div></section>
+
+            <section class="story" id="student-guide-problem"><h2 data-i18n="s.problem">Problem</h2><div class="body">
+                <p data-i18n="sg.pb.1">How can scattered, sometimes complex administrative information be structured so that a new international student sees what applies to them, when to act and what comes next?</p>
+                <p data-i18n="sg.pb.2">I designed for five situations: first orientation, concrete preparation (documents, deadlines, fees, offices), ongoing studies, the move between countries, and reading in more than one language. These profiles come from the project context. They are not personas validated by interviews.</p>
+            </div></section>
+
+            <section class="story" id="student-guide-structure"><h2 data-i18n="s.structure">Information structure</h2><div class="body">
+                <p data-i18n="sg.st.1">Instead of grouping content by institution or by administrative topic, I organised it along a student's path in three phases:</p>
+                <ul>
+                    <li data-i18n="sg.st.l1"><strong>Before the programme:</strong> application, admission, enrolment, insurance, visa, funding and housing.</li>
+                    <li data-i18n="sg.st.l2"><strong>During the programme:</strong> the academic year, re-registration, life at each site, and the specifics of the Luxembourg route.</li>
+                    <li data-i18n="sg.st.l3"><strong>After the programme:</strong> further study and, where the conditions are met, the first steps toward working.</li>
+                </ul>
+                <p data-i18n="sg.st.2">Every procedure answers the same questions: what is it, who is it for, when must I act, where is the office, which documents, what costs and deadlines, and who can I ask.</p>
+            </div></section>
+
+            <section class="story" id="student-guide-design"><h2 data-i18n="s.design">Design choices</h2><div class="body">
+                <ul>
+                    <li data-i18n="sg.ds.l1"><strong>Hierarchy.</strong> Navy blue bands (#1B2A4A) are the recurring anchor for headings, cards and frames, to help readers move between topics.</li>
+                    <li data-i18n="sg.ds.l2"><strong>Content categories and callouts.</strong> <em lang="fr">À retenir</em>, <em lang="fr">Attention</em> and <em lang="fr">Bon à savoir</em> separate the essentials from the warnings and the extras.</li>
+                    <li data-i18n="sg.ds.l3"><strong>Visible consequences.</strong> Rules with serious effects, such as the limit of three exam attempts, must be easy to find.</li>
+                    <li data-i18n="sg.ds.l4"><strong>Languages.</strong> The guide is mostly in French. German administrative terms such as <em lang="de">Rückmeldung</em> stay where students will meet them, and the Saarbrücken section is in German.</li>
+                </ul>
+            </div></section>
+
+            <section class="story" id="student-guide-accuracy"><h2 data-i18n="s.accuracy">Accuracy</h2><div class="body">
+                <p data-i18n="sg.ac.1">With administrative content, a wrong detail can cost a student a deadline or a visa. So checking the facts was part of the design work:</p>
+                <ul>
+                    <li data-i18n="sg.ac.l1">Rules are checked against official sources. The exam-attempt rule is verified against the current regulations before any emphasis is final.</li>
+                    <li data-i18n="sg.ac.l2">Details that change, such as fees, deadlines and grant amounts, are rechecked before publication. Where a fee could not be confirmed, the guide points to the official page instead of printing a number.</li>
+                    <li data-i18n="sg.ac.l3">The French or German quota status is kept apart from the study location, because every student starts in Metz. The quota status affects the administrative assignment and when the DFH grant is paid.</li>
+                    <li data-i18n="sg.ac.l4">Residence rights after studying distinguish a Bachelor from a Master. The APS is covered only for a Master's degree.</li>
+                </ul>
+            </div></section>
+
+            <section class="story" id="student-guide-reflection"><h2 data-i18n="s.reflection">Reflection and next steps</h2><div class="body">
+                <p data-i18n="sg.rf.1">Designing an information document is more than layout and type. Choosing, ordering and verifying the content matters as much. A timeline helps match rules to real moments, but it forces care with special cases, country-specific procedures and facts that change.</p>
+                <p data-i18n="sg.rf.2">The guide is still being finalised and has not been tested with students, so I make no claim about results. Next steps: the final content check, updating the details that change, and a test with students from the target group. Can they find what they need quickly, follow the order of the steps, and understand the critical warnings?</p>
+            </div></section>
+        </div>
+        <div class="wrap pn">
+            <p class="pn-all"><a href="#projects" data-i18n="cs.allfull">Back to all projects</a></p>
+        </div>
+    </article>
+</main>
+
+<footer>
+    <div class="wrap">
+        <div class="foot-cta">
+            <p data-i18n="ft.cta">Ready to work together? Contact me!</p>
+            <div class="foot-links">
+                <a class="btn small" data-mail href="mailto:ctiokam@gmail.com" data-i18n="ct.mail">Email me</a>
+                <a class="btn ghost small" href="https://www.linkedin.com/in/grace-cardle-tiokam-368056360" target="_blank" rel="noopener"><span data-i18n="ct.li">LinkedIn profile</span><span class="sr" data-i18n="ext.new"> (opens in a new tab)</span> ↗</a>
+                <a class="btn ghost small" href="https://wa.me/33667412635" target="_blank" rel="noopener"><span data-i18n="ct.wa">WhatsApp me</span><span class="sr" data-i18n="ext.new"> (opens in a new tab)</span> ↗</a>
+            </div>
+        </div>
+        <p data-i18n="ft.copy">© 2026 Grace Tiokam Portfolio. Built by hand.</p>
+    </div>
+</footer>
+
+<script src="assets/js/i18n-de.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
