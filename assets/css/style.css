@@ -243,6 +243,38 @@ html { scroll-padding-top: calc(var(--header-h) + 16px); }
 .work-media.contain { display: flex; justify-content: center; padding: 16px 0; }
 .work-media.contain > img { width: auto; max-width: 100%; height: 100%; object-fit: contain; }
 .sub-head { margin-top: clamp(56px, 8vw, 104px); }
+/* compact cards without an image (software projects): two side by side, one column on small screens */
+.works.compact { grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+.works.compact .work { grid-template-columns: 1fr; align-items: start; }
+.works.compact .work h3 { font-size: clamp(1.6rem, 2.4vw, 2rem); overflow-wrap: break-word; }
+/* software cards: the "Read the project" link covers the whole card (stretched link); the topic links sit above it */
+.work a.go { text-decoration: none; }
+.work .stretched::after { content: ""; position: absolute; inset: 0; z-index: 0; border-radius: 3px; }
+.work .stretched:focus-visible { outline: none; }
+.work .stretched:focus-visible::after { outline: 3px solid var(--focus); outline-offset: 8px; }
+.work:has(.stretched:focus-visible) h3 span { background-size: 100% 2px; }
+.work:hover .go .arr, .work .go:focus-visible .arr { transform: translateX(4px); }
+.tags.tag-links li { padding: 0; border: 0; background: none; }
+.tags.tag-links a { position: relative; z-index: 1; display: inline-flex; align-items: center; min-height: 28px; font-size: .85rem; font-weight: 500; padding: 4px 11px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); text-decoration: none; }
+.tags.tag-links a:hover { border-color: var(--ink); }
+/* software project views: code samples and state diagram */
+.story code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .88em; }
+.story :not(pre) > code { background: var(--sand); padding: .08em .35em; border-radius: 4px; }
+.story pre.code { margin: 0; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; overflow-x: auto; font-size: .92rem; line-height: 1.55; white-space: pre; }
+.state-diagram { display: block; width: 100%; min-width: 600px; height: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+.state-fig { min-width: 0; }
+.state-fig figcaption { margin-top: 8px; }
+.sd-state { fill: var(--bg); stroke: var(--ink); stroke-width: 1.5; }
+.sd-name { font: 700 15px var(--font-body); fill: var(--ink); text-anchor: middle; letter-spacing: .02em; }
+.sd-line { fill: none; stroke: var(--ink); stroke-width: 1.5; }
+.sd-head { fill: var(--ink); }
+.sd-auto { stroke: var(--route); stroke-dasharray: 5 4; }
+.sd-head-auto { fill: var(--route); }
+.sd-start { fill: var(--ink); }
+.sd-label { font: 500 13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: var(--ink); text-anchor: middle; }
+.sd-small { font-size: 11px; fill: var(--muted); }
+.sd-auto-text { fill: var(--route); }
+.sd-note { font: 500 13px var(--font-body); fill: var(--muted); text-anchor: middle; }
 .work-media.cover-cm { background: #fdf4e3; }
 
 /* case study: position, jump chips, prev/next */
@@ -257,6 +289,7 @@ html { scroll-padding-top: calc(var(--header-h) + 16px); }
 .pn a { display: block; text-decoration: none; padding: 18px 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
 .pn a:hover { border-color: var(--ink); }
 .pn a.nx { text-align: right; }
+@media (min-width: 601px) { .pn a.nx { grid-column: 2; } } /* a lone "next" link stays on the right */
 .pn small { display: block; color: var(--muted); font-weight: 500; font-size: .85rem; }
 .pn strong { display: block; font: 700 1.2rem/1.2 var(--font-display); letter-spacing: -0.01em; margin-top: 4px; }
 .pn-all { grid-column: 1 / -1; text-align: center; font-weight: 600; }

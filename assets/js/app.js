@@ -15,14 +15,14 @@
       copy: 'Copy address', copied: 'Copied', copiedStatus: 'Email address copied',
       subject: 'Internship from April 2027',
       base: 'Grace Tiokam | UX/UI Portfolio',
-      titles: { 'campus-guide': 'Campus Guide', netflix: 'Learning a Language with Netflix', cameroon: 'Cameroon, Africa in Miniature', 'student-guide': 'International Student Guide' }
+      titles: { 'campus-guide': 'Campus Guide', netflix: 'Learning a Language with Netflix', cameroon: 'Cameroon, Africa in Miniature', 'student-guide': 'International Student Guide', aufgabenmanagement: 'AufgabenManagement', 'playwright-tests': 'Playwright Reservation Tests', door: 'Door State Machine' }
     },
     de: {
       dark: 'Dunkel', light: 'Hell', toDark: 'Zum dunklen Modus wechseln', toLight: 'Zum hellen Modus wechseln',
       copy: 'Adresse kopieren', copied: 'Kopiert', copiedStatus: 'E-Mail-Adresse kopiert',
       subject: 'Praktikum ab April 2027',
       base: 'Grace Tiokam | UX/UI-Portfolio',
-      titles: { 'campus-guide': 'Campus Guide', netflix: 'Sprachen lernen mit Netflix', cameroon: 'Kamerun, Afrika in Miniatur', 'student-guide': 'International Student Guide' }
+      titles: { 'campus-guide': 'Campus Guide', netflix: 'Sprachen lernen mit Netflix', cameroon: 'Kamerun, Afrika in Miniatur', 'student-guide': 'International Student Guide', aufgabenmanagement: 'AufgabenManagement', 'playwright-tests': 'Reservierungstests mit Playwright', door: 'Zustandsautomat Door' }
     }
   };
 
@@ -86,7 +86,7 @@
   if (mq && mq.addEventListener) mq.addEventListener('change', updateTheme);
 
   /* ---------- routing: #home, #projects, #about, #contact, #<project>, #<project>/<section> ---------- */
-  var VIEWS = { 'campus-guide': 1, netflix: 1, cameroon: 1, 'student-guide': 1 };
+  var VIEWS = { 'campus-guide': 1, netflix: 1, cameroon: 1, 'student-guide': 1, aufgabenmanagement: 1, 'playwright-tests': 1, door: 1 };
   var views = $$('.view'), current = null;
 
   function updateTitle() {
