@@ -243,6 +243,9 @@ html { scroll-padding-top: calc(var(--header-h) + 16px); }
 .work-media.contain { display: flex; justify-content: center; padding: 16px 0; }
 .work-media.contain > img { width: auto; max-width: 100%; height: 100%; object-fit: contain; }
 .sub-head { margin-top: clamp(56px, 8vw, 104px); }
+/* compact cards without an image (software projects): two side by side, one column on small screens */
+.works.compact { grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+.works.compact .work { grid-template-columns: 1fr; align-items: start; }
 .work-media.cover-cm { background: #fdf4e3; }
 
 /* case study: position, jump chips, prev/next */
