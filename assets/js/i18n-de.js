@@ -415,6 +415,8 @@ window.I18N_DE = {
   "pw.lim.1": "Ich habe gelernt, dass Tests die eigene Anwendungslogik prüfen sollen, nicht das Framework, und dass das JavaScript des Formulars und seine Tests zusammenpassen müssen: Das erneute Laden gespeicherter Daten und der erneute Aufruf der Validierung brauchten mehrere Korrekturen.",
   "pw.lim.2": "Grenzen: Es sind funktionale Tests. Sie prüfen, ob das Formular wie vorgegeben funktioniert, nicht, ob es leicht zu bedienen ist; dafür bräuchte es einen Usability-Test mit echten Nutzenden. Die Tests laufen gegen eine kleine lokale Beispielanwendung.",
   "dr.pos": "Softwareprojekt 1 von 3",
+  "sw.sm": "Zustandsautomat",
+  "sw.code.de": "Unveränderter Auszug aus dem Repository.",
   "dr.dek": "Eine Java-Klasse, die eine Tür mit PIN-Code simuliert: Sie öffnet, schließt, verriegelt, entriegelt und verriegelt sich nach einer Weile von selbst.",
   "dr.f.context": "Modul Perfectionnement en Java, DFHI, Oktober 2026",
   "dr.f.role": "Zustandsdiagramm, Java-Klasse, JUnit-Tests, Bericht",

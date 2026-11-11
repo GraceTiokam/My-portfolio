@@ -263,6 +263,7 @@ html { scroll-padding-top: calc(var(--header-h) + 16px); }
 .story pre.code { margin: 0; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; overflow-x: auto; font-size: .92rem; line-height: 1.55; white-space: pre; }
 .state-diagram { display: block; width: 100%; min-width: 600px; height: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
 .state-fig { min-width: 0; }
+.code-fig { min-width: 0; } /* lets the code scroll inside the column */
 .state-fig figcaption { margin-top: 8px; }
 .sd-state { fill: var(--bg); stroke: var(--ink); stroke-width: 1.5; }
 .sd-name { font: 700 15px var(--font-body); fill: var(--ink); text-anchor: middle; letter-spacing: .02em; }

@@ -159,7 +159,7 @@
                             <p class="work-meta" data-i18n="pr.java.meta">Individual course project · Java</p>
                             <h3 id="card-door"><span data-i18n="dr.title">Door State Machine</span></h3>
                             <p class="sum" data-i18n="pr.dr.sum">A Java class that simulates a door with a PIN code. I modelled it first as a UML state diagram, then developed it test-first; every impossible action returns a precise error code.</p>
-                            <ul class="tags tag-links" aria-label="Door State Machine: topics" data-i18n-aria="dr.title.topics"><li><a href="#door/state-machine">State Machine</a></li><li><a href="#door/uml">UML</a></li><li><a href="#door/tdd">TDD</a></li><li><a href="#door/junit">JUnit 5</a></li></ul>
+                            <ul class="tags tag-links" aria-label="Door State Machine: topics" data-i18n-aria="dr.title.topics"><li><a href="#door/state-machine" data-i18n="sw.sm">State Machine</a></li><li><a href="#door/uml">UML</a></li><li><a href="#door/tdd">TDD</a></li><li><a href="#door/junit">JUnit 5</a></li></ul>
                             <a class="go stretched" href="#door" aria-describedby="card-door"><span data-i18n="pr.readsw">Read the project</span> <span class="arr" aria-hidden="true">→</span></a>
                         </div>
                     </article>
@@ -790,7 +790,7 @@
                 <p data-i18n="am.rb.what">A Java mechanism that loads the texts of an app from one file per language. The code only asks for a key, such as <code>overview.header</code>, and gets the text in the current language.</p>
                 <h3 data-i18n="sw.how">In this project</h3>
                 <p data-i18n="am.rb.how">All visible texts, from prompts to error messages, are in three files, <code>messages_de</code>, <code>_fr</code> and <code>_en.properties</code>, with the same keys. The bundle is loaded without a fallback, so Java never silently switches to the system language.</p>
-<pre class="code" tabindex="0" translate="no"><code>private static void loadBundle(String languageCode) {
+                <pre class="code" tabindex="0" translate="no"><code>private static void loadBundle(String languageCode) {
     currentLocale = toLocale(languageCode);
     bundle = ResourceBundle.getBundle(BUNDLE_NAME, currentLocale, NO_FALLBACK);
 }</code></pre>
@@ -803,7 +803,7 @@
                 <p data-i18n="am.mf.what">A Java class that fills the placeholders in a text and formats them for the current language. The same date reads “11 Nov 2026” in British English and “11.11.2026” in German.</p>
                 <h3 data-i18n="sw.how">In this project</h3>
                 <p data-i18n="am.mf.how">Each text says how its values are shown, for example <code>{0,number,currency}</code> for an amount. Plurals use a choice pattern, so the app writes “one task” or “3 tasks”, never “1 tasks”. Forms of address (Mr/Ms, Herr/Frau, M./Mme) also come from the language files.</p>
-<pre class="code" tabindex="0" translate="no"><code>overview.tasks = {1,choice,0#{0} has not completed any tasks yet.|1#{0} has completed one task.|1&lt;{0} has completed {1,number,integer} tasks. That is a lot.}</code></pre>
+                <pre class="code" tabindex="0" translate="no"><code>overview.tasks = {1,choice,0#{0} has not completed any tasks yet.|1#{0} has completed one task.|1&lt;{0} has completed {1,number,integer} tasks. That is a lot.}</code></pre>
                 <h3 data-i18n="sw.why">Why it matters</h3>
                 <p data-i18n="am.mf.why">Plurals, word order and forms of address change from one language to the next. When UI copy is written as a pattern with placeholders rather than as finished sentences, it can be localised without rewriting the code.</p>
             </div></section>
@@ -813,7 +813,7 @@
                 <p data-i18n="am.lc.what">A Java object that stands for a language and a country, such as de-DE or en-GB. It decides how dates, numbers and currency are formatted.</p>
                 <h3 data-i18n="sw.how">In this project</h3>
                 <p data-i18n="am.lc.how">Each language is tied to a country, so the currency symbol follows it (€ or £). The amount itself is not converted. The chosen language is saved in <code>config.properties</code> and restored at the next start.</p>
-<pre class="code" tabindex="0" translate="no"><code>private static Locale toLocale(String languageCode) {
+                <pre class="code" tabindex="0" translate="no"><code>private static Locale toLocale(String languageCode) {
     return switch (languageCode) {
         case "fr" -&gt; Locale.FRANCE; // fr-FR
         case "en" -&gt; Locale.UK;     // en-GB
@@ -904,7 +904,7 @@
                 <p data-i18n="pw.pl.what">A tool that opens a real browser and uses a web page the way a person would: it types, clicks and reads what is on the screen.</p>
                 <h3 data-i18n="sw.how">In this project</h3>
                 <p data-i18n="pw.pl.how">The tests check that the “Reservieren” button stays disabled while a required field is empty, that the confirmation page shows the right name and choices, that a reservation can be changed, and that the confirmation page shows a notice when it is opened without data.</p>
-<pre class="code" tabindex="0" translate="no"><code>resPage.selectAlcohol(false);
+                <figure class="fig code-fig"><pre class="code" tabindex="0" translate="no"><code>resPage.selectAlcohol(false);
 resPage.selectPreference("tanzen");
 resPage.tryClickReserveForced();
 
@@ -913,6 +913,7 @@ assertAll("Der Button muss deaktiviert bleiben, da kein Name eingegeben wurde",
         () -&gt; assertFalse(resPage.isReserveButtonEnabled()),
         () -&gt; assertTrue(page.url().endsWith("Reservierung.html"))
 );</code></pre>
+                    <figcaption data-i18n="sw.code.de">Unchanged excerpt from the repository. The texts inside the code are in German.</figcaption></figure>
                 <h3 data-i18n="sw.why">Why it matters</h3>
                 <p data-i18n="pw.pl.why">These are behaviours a user notices straight away: a button that does nothing, a wrong summary, lost data. Automated tests catch them again after every change, without anyone clicking through the form by hand.</p>
             </div></section>
@@ -922,7 +923,7 @@ assertAll("Der Button muss deaktiviert bleiben, da kein Name eingegeben wurde",
                 <p data-i18n="sw.junit.what">The standard Java framework for writing and running tests. Each test has a name and checks, and a report shows which tests passed.</p>
                 <h3 data-i18n="sw.how">In this project</h3>
                 <p data-i18n="pw.ju.how">Each test starts with a Given/When/Then description and has a readable German name. Several checks are grouped with <code>assertAll</code>, so one failure does not hide the others.</p>
-<pre class="code" tabindex="0" translate="no"><code>/**
+                <figure class="fig code-fig"><pre class="code" tabindex="0" translate="no"><code>/**
  * - GIVEN der Benutzer ist auf der "Reservierung"-Seite AND das Namensfeld ist leer
  * - AND er wählt "ohne Alkohol" und "Tanzen"
  * - WHEN er versucht, auf "Reservieren" zu klicken
@@ -930,6 +931,7 @@ assertAll("Der Button muss deaktiviert bleiben, da kein Name eingegeben wurde",
  */
 @Test
 @DisplayName("Button deaktiviert, wenn der Name fehlt")</code></pre>
+                    <figcaption data-i18n="sw.code.de">Unchanged excerpt from the repository. The texts inside the code are in German.</figcaption></figure>
                 <h3 data-i18n="sw.why">Why it matters</h3>
                 <p data-i18n="pw.ju.why">Readable test names form a list of expected behaviours that the whole team can read, not only developers.</p>
             </div></section>
@@ -939,7 +941,7 @@ assertAll("Der Button muss deaktiviert bleiben, da kein Name eingegeben wurde",
                 <p data-i18n="pw.po.what">A way to organise tests: each page of the application gets its own class, which describes what a user can do on that page.</p>
                 <h3 data-i18n="sw.how">In this project</h3>
                 <p data-i18n="pw.po.how"><code>ReservierungPage</code> offers actions such as entering a name or choosing a preference. <code>BestaetigungPage</code> reads the welcome message and the summary. The tests only talk to these page objects.</p>
-<pre class="code" tabindex="0" translate="no"><code>public void enterName(String name) {
+                <pre class="code" tabindex="0" translate="no"><code>public void enterName(String name) {
     page.locator("#nameInput").fill(name);
     page.locator("#nameInput").dispatchEvent("keyup");
 }
@@ -1001,7 +1003,7 @@ public boolean isReserveButtonEnabled() {
             <nav class="chips" aria-label="On this page" data-i18n-aria="sw.jump">
                 <a href="#door/assignment" data-i18n="chip.assign">Assignment</a>
                 <a href="#door/role" data-i18n="chip.myrole">My role</a>
-                <a href="#door/state-machine">State Machine</a>
+                <a href="#door/state-machine" data-i18n="sw.sm">State Machine</a>
                 <a href="#door/uml">UML</a>
                 <a href="#door/tdd">TDD</a>
                 <a href="#door/junit">JUnit 5</a>
@@ -1028,12 +1030,12 @@ public boolean isReserveButtonEnabled() {
                 <p data-i18n="dr.role.2">I used an AI assistant (Claude) to understand the assignment, explain Java concepts and review my code. The report lists my prompts; I decided what to keep.</p>
             </div></section>
 
-            <section class="story" id="door-state-machine"><h2>State Machine</h2><div class="body">
+            <section class="story" id="door-state-machine"><h2 data-i18n="sw.sm">State Machine</h2><div class="body">
                 <h3 data-i18n="sw.what">What it is</h3>
                 <p data-i18n="dr.sm.what">A model in which something is always in exactly one state, and only certain actions move it to another state.</p>
                 <h3 data-i18n="sw.how">In this project</h3>
                 <p data-i18n="dr.sm.how">The three states are OPENED, CLOSED and LOCKED. Each method first checks the current state: a valid action changes it, any other action raises an error with a precise code, such as <code>IS_LOCKED</code> or <code>WRONG_PIN</code>.</p>
-<pre class="code" tabindex="0" translate="no"><code>public void open() throws DoorException {
+                <pre class="code" tabindex="0" translate="no"><code>public void open() throws DoorException {
     switch (state) {
         case OPENED -&gt; throw new DoorException(DoorException.ErrorCode.ALREADY_OPEN);
         case LOCKED -&gt; throw new DoorException(DoorException.ErrorCode.IS_LOCKED);
@@ -1107,7 +1109,7 @@ public boolean isReserveButtonEnabled() {
                 <p data-i18n="sw.junit.what">The standard Java framework for writing and running tests. Each test has a name and checks, and a report shows which tests passed.</p>
                 <h3 data-i18n="sw.how">In this project</h3>
                 <p data-i18n="dr.ju.how">Separate tests cover the valid transitions, the counter and the auto-lock. Parameterised tests (<code>@ParameterizedTest</code> with <code>@MethodSource</code>) check every invalid action per state and verify the exact error code.</p>
-<pre class="code" tabindex="0" translate="no"><code>Arguments.of(
+                <pre class="code" tabindex="0" translate="no"><code>Arguments.of(
         "[CRITICAL] open() -&gt; access denied",
         (Executable)
                 () -&gt; lockedDoor().open(),
